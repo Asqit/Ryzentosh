@@ -1,42 +1,95 @@
-# Ryzentosh - Catalina/Big Sur
+# Ryzentosh
 
+_an opencore configuration for AMD based systems_
 
-finder: ![finder:About my mac](about.png)
+![finder>about this mac](about.png)
 
-**By downloading/cloning this repo, you agree that you take all risks to yourself and cant blame me for it**
+## Specs
 
-**Before installing, generate new PlatformInfo in both postInstall/install configs (`gensmbios`)**
+| Type    | Name              |
+| ------- | ----------------- |
+| CPU     | AMD Ryzen 5 5600x |
+| GPU     | AMD XFX RX580 8GB |
+| MB      | Asus B450MK       |
+| Chipset | AMD B450          |
+| RAM     | 16GB ddr4 2666Mhz |
+| AUDIO   | RealTek ALC887    |
+| NETWORK | RealTek RTL811H   |
+| SSD     | Adata SX6000NP    |
+| BIOS    | 3802              |
 
-## Install 
+## BIOS settings
 
-Its quite simple, create USB drive for boot.(8GB USB should do the trick) Check out opencore guide for creating USB. Then simply copy `EFI` folder from `install` folder of this repo. You also need to change few bios settings and those settings are: 
+Its crucial part of success. These are recomended settings for running MacOS on regular beige PC.
 
-**disable:**
+**Disable:**
 
-* fast boot
-* com/serial port
-* secure boot
-* parallel port
-* if 4G decoding is enabled, then disable resize bar
+- fast boot
+- com/serial/parallel
+- secure boot
+- resize bar
 
-**enable:**
+**Enable:**
 
-* 4G decoding
-* switch sata operation to AHCI
+- 4G decoding
+- SATA operations to AHCI
 
-## After install 
+## Installation
 
-Once youve installed MacOS on you system, you need to mount efi partition of your system drive, use `MountEFI` utility, then copy `EFI` from `postInstall` folder and voila! You now have working MacOS on regular old PC.
+**WARNING:Continue on your own risk. I share my config with no waranty. If anything happens to your iron, its not on me**
 
+### Edit of `config.plist`
 
-## Specs 
-- AMD Ryzen 5 5600x (6c, 12th)
-- AMD Radeon RX580 8GB (XFX)
-- Asus B450MK-I 
-- 16GB DDR4 2666MHz
-- Realtek ALC887
-- latest bios
+**Kernel**
+
+If your core count differs from mine, then your should edit three lines in `kernel > patch`. Edits are following:
+
+1. `B8 06 0000 0000`
+2. `BA 06 0000 0000`
+3. `BA 06 0000 0000`
+
+The edits are simple, there are in `HEX` format. here is the syntax: `BX <phys core count> 0000 0000`
+
+**elsewhere**
+
+You do best if you check recomended settings for your chipset. Since mine is B450, I don't need `SSDT-CPUR.aml` and I also have different settings elsewhere.
+Check best settings for yourself [here](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/)
+
+**PlatformInfo**
+
+It is **required** that you generate yourself new SMBIOS information, so that there won't be conflict. Use [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS) utility or [OCAuxiliaryTools](https://github.com/ic005k/OCAuxiliaryTools/releases) for that.
+
+### Installation itself
+
+Download mac os you want using `macrecovery` tool located at [opencore](https://github.com/acidanthera/OpenCorePkg/releases) package. Meanwhile you can start working on your USB.
+create folder named: `com.apple.recovery.boot`. You can also copy the `EFI` folder from `install` folder onto your USB.
+
+After your mac os was downloaded, go check results folder, you grab all files called something like: base_system and place the into the `com.apple.recovery.boot` folder you created earlier.
+
+Great work! Now reboot your machine and boot into your USB (`F8` or `F11` are boot keys that some system uses). You should see black screen with white text. Select option with .dmg as file extension. (could be named after your USB).
+
+Here comes the crucial part of all this.
+Your computer will try booting MacOS.
+If you find any trouble, you have to google for solution. It everything goes well you should see installation window.
+format your drive with `APFS` and install mac os.
+
+## Post Install
+
+Great! You have installed MacOS into your super RGB gaming machine, Steave jobs would be proud of you!
+
+Now if you plug out your USB are reboot, nothing will happen(no boot), that is because MacOS is installed, but without bootloader.
+
+To install opencore bootloader you will need [this](https://github.com/corpnewt/MountEFI) utility. Run it and select your system drive. Then just simply copy my `EFI` folder from postInstall into the EFI drive that you just mounted.
+
+**important** udate your postInstall `config.plist` with changes that you've done to your installation `config.plist`
+
+If all of this is done, then you can reboot your machine and boot to your freshly install mac os.
 
 ## Known issues
-- 3.5 line-in mic. doesnt work (could be fixed, but the quality of audio will be worse)
-- VM machines (virtulbox runs fine, but docker, Paralels does not)
+
+1. 3.5 line-in micr doesnt work
+2. unknown CPU in `finder > about this mac`
+3. Some applications feels laggy on resize
+4. some VM machines doesnt work (Docker, Paralel)
+5. Bluetooth
+6. Monterey as system doesnt work

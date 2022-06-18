@@ -16,7 +16,7 @@ _an opencore configuration for AMD based systems_
 | AUDIO   | RealTek ALC887    |
 | NETWORK | RealTek RTL811H   |
 | SSD     | Adata SX6000NP    |
-| BIOS    | 3802              |
+| BIOS    | 3211              |
 
 ## BIOS settings
 

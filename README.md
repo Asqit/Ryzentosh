@@ -92,4 +92,3 @@ If all of this is done, then you can reboot your machine and boot to your freshl
 3. Some applications feels laggy on resize
 4. some VM machines doesnt work (Docker, Paralel)
 5. Bluetooth
-6. Monterey as system doesnt work

@@ -89,6 +89,6 @@ If all of this is done, then you can reboot your machine and boot to your freshl
 
 1. 3.5 line-in micr doesnt work
 2. unknown CPU in `finder > about this mac`
-3. Some applications feels laggy on resize
+3. All electron/Chromium based application are laggy on resize,manipulation (MS Edge, VS code, Messenger...)
 4. some VM machines doesnt work (Docker, Paralel)
 5. Bluetooth

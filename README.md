@@ -6,17 +6,16 @@ _an opencore configuration for AMD based systems_
 
 ## Specs
 
-| Type    | Name              |
-| ------- | ----------------- |
-| CPU     | AMD Ryzen 5 5600x |
-| GPU     | AMD XFX RX580 8GB |
-| MB      | Asus B450MK       |
-| Chipset | AMD B450          |
-| RAM     | 16GB ddr4 2666Mhz |
-| AUDIO   | RealTek ALC887    |
-| NETWORK | RealTek RTL811H   |
-| SSD     | Adata SX6000NP    |
-| BIOS    | 3211              |
+| Type    | Name               |
+| ------- | ------------------ |
+| CPU     | AMD Ryzen 5 5600x  |
+| GPU     | Sapphire RX570 4GB |
+| MB      | Asus B450MK        |
+| RAM     | 16GB ddr4 2666Mhz  |
+| AUDIO   | Realtek ALC887     |
+| NETWORK | Realtek RTL811H    |
+| SSD     | Adata SX6000NP     |
+| BIOS    | 3211 (downgraded)  |
 
 ## BIOS settings
 

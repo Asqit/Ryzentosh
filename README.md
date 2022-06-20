@@ -64,7 +64,7 @@ It is **required** that you generate yourself new SMBIOS information, so that th
 Download mac os you want using `macrecovery` tool located at [opencore](https://github.com/acidanthera/OpenCorePkg/releases) package. Meanwhile you can start working on your USB.
 create folder named: `com.apple.recovery.boot`. You can also copy the `EFI` folder from `install` folder onto your USB.
 
-After your mac os was downloaded, go check results folder, you grab all files called something like: base_system and place the into the `com.apple.recovery.boot` folder you created earlier.
+Once you finish downloading the macOS, check results folder, you grab all files called something like: "base_system" and place the into the `com.apple.recovery.boot` folder you created earlier.
 
 Great work! Now reboot your machine and boot into your USB (`F8` or `F11` are boot keys that some system uses). You should see black screen with white text. Select option with .dmg as file extension. (could be named after your USB).
 
@@ -87,8 +87,8 @@ If all of this is done, then you can reboot your machine and boot to your freshl
 
 ## Known issues
 
-1. 3.5 line-in micr doesnt work
+1. 3.5 line-in microphone does not work (Could be fixed, by using VoodooHDA, but you will have to live with worse quality)
 2. unknown CPU in `finder > about this mac`
 3. All electron/Chromium based application are laggy on resize,manipulation (MS Edge, VS code, Messenger...)
-4. some VM machines doesnt work (Docker, Paralel)
-5. Bluetooth
+4. VM LV2 application does not work (Docker, Parallels...[virtualbox does])
+5. USB Bluetooth

@@ -39,6 +39,8 @@ Its crucial part of success. These are recomended settings for running MacOS on 
 
 ### Edit of `config.plist`
 
+I recommend using `OCAuxiliaryTools` or `propertree` as config editor.
+
 **Kernel**
 
 If your core count differs from mine, then your should edit three lines in `kernel > patch`. Edits are following:

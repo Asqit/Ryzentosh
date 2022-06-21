@@ -108,5 +108,5 @@ If all of this is done, then you can reboot your machine and boot to your freshl
 1. 3.5 line-in microphone does not work (Could be fixed, by using VoodooHDA, but you will have to live with worse quality)
 2. unknown CPU in `finder > about this mac`
 3. All electron/Chromium based application are laggy on resize,manipulation (MS Edge, VS code, Messenger...)
-4. VM LV2 application does not work (Docker, Parallels...[virtualbox does])
+4. VM LVL2 application does not work (Docker, Parallels...[virtualbox does])
 5. USB Bluetooth

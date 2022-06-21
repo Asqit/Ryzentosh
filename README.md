@@ -6,16 +6,16 @@ _an opencore configuration for AMD based systems_
 
 ## Specs
 
-| Type    | Name               |
-| ------- | ------------------ |
-| CPU     | AMD Ryzen 5 5600x  |
-| GPU     | Sapphire RX570 4GB |
-| MB      | Asus B450MK        |
-| RAM     | 16GB ddr4 2666Mhz  |
-| AUDIO   | Realtek ALC887     |
-| NETWORK | Realtek RTL811H    |
-| SSD     | Adata SX6000NP     |
-| BIOS    | 3211 (downgraded)  |
+| Type    | Name                            |
+| ------- | ------------------------------- |
+| CPU     | AMD Ryzen 5 5600x               |
+| GPU     | Sapphire RX570 4GB (downgraded) |
+| MB      | Asus B450MK                     |
+| RAM     | 16GB ddr4 2666Mhz               |
+| AUDIO   | Realtek ALC887                  |
+| NETWORK | Realtek RTL811H                 |
+| SSD     | Adata SX6000NP                  |
+| BIOS    | 3211 (downgraded)               |
 
 ## BIOS settings
 
@@ -50,6 +50,23 @@ If your core count differs from mine, then your should edit three lines in `kern
 3. `BA 06 0000 0000`
 
 The edits are simple, there are in `HEX` format. here is the syntax: `BX <phys core count> 0000 0000`
+
+<details>
+<summary>HEX TABLE</summary>
+
+| DEC | HEX |
+| --- | --- |
+| 2   | 02  |
+| 4   | 04  |
+| 6   | 06  |
+| 8   | 08  |
+| 12  | 0C  |
+| 16  | 10  |
+| 24  | 18  |
+| 32  | 20  |
+| 64  | 40  |
+
+</details>
 
 **elsewhere**
 
